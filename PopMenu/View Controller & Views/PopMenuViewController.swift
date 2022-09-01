@@ -161,6 +161,7 @@ final public class PopMenuViewController: UIViewController {
     fileprivate func setAbsoluteSourceFrame() {
         if let sourceView = sourceViewAsUIView {
             absoluteSourceFrame = sourceView.convert(sourceView.bounds, to: nil)
+            absoluteSourceFrame?.origin.y += sourceView.bounds.size.height
         }
     }
     
