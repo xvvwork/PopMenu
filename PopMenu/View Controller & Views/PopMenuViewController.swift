@@ -29,7 +29,7 @@ final public class PopMenuViewController: UIViewController {
     
     /// The blur overlay view for translucent illusion.
     private lazy var blurOverlayView: UIVisualEffectView = {
-        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
         blurView.translatesAutoresizingMaskIntoConstraints = false
         blurView.layer.cornerRadius = appearance.popMenuCornerRadius
         blurView.layer.masksToBounds = true
@@ -260,7 +260,7 @@ extension PopMenuViewController {
     /// Setup the content view.
     fileprivate func configureContentView() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addShadow(offset: .init(width: 0, height: 1), opacity: 0.5, radius: 20)
+        containerView.addShadow(offset: .init(width: 0, height: 1), opacity: 1, radius: 8)
         containerView.layer.cornerRadius = appearance.popMenuCornerRadius
         containerView.backgroundColor = .clear
         
@@ -523,8 +523,8 @@ extension PopMenuViewController {
         actionView.addSubview(separatorView)
         
         NSLayoutConstraint.activate([
-            separatorView.leftAnchor.constraint(equalTo: actionView.leftAnchor),
-            separatorView.rightAnchor.constraint(equalTo: actionView.rightAnchor),
+            separatorView.leftAnchor.constraint(equalTo: actionView.leftAnchor, constant: 20),
+            separatorView.rightAnchor.constraint(equalTo: actionView.rightAnchor, constant: -20),
             separatorView.bottomAnchor.constraint(equalTo: actionView.bottomAnchor),
             separatorView.heightAnchor.constraint(equalToConstant: separator.height)
         ])
